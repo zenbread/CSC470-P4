@@ -16,23 +16,19 @@ namespace P4
             FormLogin formLogin = new FormLogin();
             DialogResult res;
             AppUser appUser;
-            try
-            {
-                do
-                {
-                    res = formLogin.ShowDialog();
-                    appUser = formLogin.ReturnUser;
-                }
-                while (!appUser.isAuthenticated && res == DialogResult.OK);
 
+            do
+            {
+                res = formLogin.ShowDialog();
+                appUser = formLogin.ReturnUser;
                 if (res != DialogResult.OK)
                 {
                     this.Close();
+                    break;
                 }
             }
-            catch (NullReferenceException) {
-                this.Close();
-            }
+            while (!appUser.isAuthenticated && res == DialogResult.OK);
+
             SetText();
         }
 
