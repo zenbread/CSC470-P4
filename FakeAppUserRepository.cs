@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace P3
+namespace P4
 {
     public class FakeAppUserRepository : IAppUserRepository
     {
@@ -12,8 +12,8 @@ namespace P3
             {
                 Users = new Dictionary<string, AppUser>();
                 AppUser user1 = new AppUser(
-                    "Steve1234",
-                    "Billy",
+                    "User1234",
+                    "password1",
                     "Steve",
                     "Davies",
                     "Steve1234@aol.com",
@@ -47,12 +47,7 @@ namespace P3
             {
                 if (Password == user.Password)
                 {
-                    SetAuthentication(UserName, true);
                     return true;
-                }
-                else
-                {
-                    SetAuthentication(UserName, false);
                 }
             }
             return false;
